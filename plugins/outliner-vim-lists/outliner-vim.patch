@@ -1,0 +1,99 @@
+--- a/main.js
++++ b/main.js
+@@ -2774,14 +2774,25 @@
+                 }
+                 this.moveCursorToLineEnd(obsidianEditor);
+                 if (!settings.overrideVimOBehaviour) {
++                    this.openPlainLine(obsidianEditor, operatorArgs.after);
++                    vim.enterInsertMode(cm);
++                    return;
++                }
++                if (this.isLiteralLine(obsidianEditor)) {
+                     this.openPlainLine(obsidianEditor, operatorArgs.after);
+                     vim.enterInsertMode(cm);
+                     return;
+                 }
++                const metadataEnd = this.getMetadataEnd(obsidianEditor);
++                if (metadataEnd > obsidianEditor.getCursor().line) {
++                    this.openPlainLine(obsidianEditor, operatorArgs.after, true, metadataEnd);
++                    vim.enterInsertMode(cm);
++                    return;
++                }
+                 const editor = new MyEditor(obsidianEditor);
+                 const root = parser.parse(editor);
+                 if (!root) {
+-                    this.openPlainLine(obsidianEditor, operatorArgs.after);
++                    this.openPlainLine(obsidianEditor, operatorArgs.after, true);
+                     vim.enterInsertMode(cm);
+                     return;
+                 }
+@@ -2794,6 +2805,9 @@
+                 if (res.shouldUpdate && zoomRange) {
+                     editor.tryRefreshZoom(zoomRange.from.line);
+                 }
++                if (!res.shouldUpdate) {
++                    this.openPlainLine(obsidianEditor, operatorArgs.after, true);
++                }
+                 // Ensure the editor is always left in insert mode
+                 vim.enterInsertMode(cm);
+             });
+@@ -2828,19 +2842,51 @@
+     getLineIndent(line) {
+         return line.match(/^[ \t]*/)[0];
+     }
+-    openPlainLine(editor, after) {
++    isLiteralLine(editor) {
+         const cursor = editor.getCursor();
+-        const line = editor.getLine(cursor.line);
+-        const indent = this.getLineIndent(line);
++        const offset = editor.posToOffset({ line: cursor.line, ch: this.getLineIndent(editor.getLine(cursor.line)).length });
++        const tree = language.ensureSyntaxTree(editor.cm.state, offset + 1, 50);
++        let node = tree === null || tree === void 0 ? void 0 : tree.resolveInner(offset + 1, -1);
++        while (node) {
++            if (/code|comment|frontmatter|yaml|math/i.test(node.name)) {
++                return true;
++            }
++            node = node.parent;
++        }
++        return false;
++    }
++    getMetadataEnd(editor) {
++        let end = editor.getCursor().line;
++        for (let line = end + 1; line < editor.lineCount(); line++) {
++            const text = editor.getLine(line);
++            if (/^[ \t]*(?:<!--(?:ANKI:[a-f0-9]{32}|SR:[^\r\n]*?)-->[ \t]*)+$/i.test(text)) {
++                end = line;
++            }
++            else if (text.trim()) {
++                break;
++            }
++        }
++        return end;
++    }
++    openPlainLine(editor, after, continueList = false, metadataEnd = editor.getCursor().line) {
++        const cursor = editor.getCursor();
++        const line = editor.getLine(cursor.line);
++        let prefix = this.getLineIndent(line);
++        const item = continueList && /^([ \t]*)([-+*]|\d{1,9}[.)])([ \t]+|$)(?:\[[^\]\r\n]\]([ \t]+|$))?/.exec(line);
++        if (item) {
++            const bullet = after && /^\d/.test(item[2]) ? `${Number(item[2].slice(0, -1)) + 1}${item[2].slice(-1)}` : item[2];
++            prefix = `${item[1]}${bullet}${item[3] || " "}${item[4] !== undefined ? `[ ]${item[4] || " "}` : ""}`;
++        }
+         if (after) {
+-            const insertAt = { line: cursor.line, ch: line.length };
+-            editor.replaceRange(`\n${indent}`, insertAt, insertAt);
+-            editor.setCursor({ line: cursor.line + 1, ch: indent.length });
++            // Keep hidden card identifiers attached to the existing item.
++            const insertAt = { line: metadataEnd, ch: editor.getLine(metadataEnd).length };
++            editor.replaceRange(`\n${prefix}`, insertAt, insertAt);
++            editor.setCursor({ line: metadataEnd + 1, ch: prefix.length });
+         }
+         else {
+             const insertAt = { line: cursor.line, ch: 0 };
+-            editor.replaceRange(`${indent}\n`, insertAt, insertAt);
+-            editor.setCursor({ line: cursor.line, ch: indent.length });
++            editor.replaceRange(`${prefix}\n`, insertAt, insertAt);
++            editor.setCursor({ line: cursor.line, ch: prefix.length });
+         }
+     }
+     unload() {

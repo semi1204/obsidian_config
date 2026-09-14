@@ -52,6 +52,7 @@ def main() -> None:
         obsidian / "plugins" / "obsidian-spaced-repetition",
         obsidian / "plugins" / "obsidian-paste-to-current-indentation",
         obsidian / "plugins" / "notebook-navigator",
+        obsidian / "plugins" / "obsidian-outliner",
         obsidian / "plugins" / "list-marker-input",
         obsidian / "plugins" / "navigator-vim-keys",
         obsidian / "plugins" / "vim-im-control",
@@ -87,6 +88,7 @@ def main() -> None:
     require_version(plugin_root / "obsidian-spaced-repetition", "1.15.4")
     require_version(plugin_root / "obsidian-paste-to-current-indentation", "5.0.2")
     require_version(plugin_root / "notebook-navigator", "3.2.2")
+    require_version(plugin_root / "obsidian-outliner", "4.10.2")
 
     subprocess.run([
         "python3", str(ROOT / "plugins/spaced-repetition-anki/build.py"),
@@ -102,6 +104,11 @@ def main() -> None:
         "python3", str(ROOT / "plugins/navigator-vim-keys/build.py"),
         "--base", str(plugin_root / "notebook-navigator/main.js"),
         "--output", str(plugin_root / "notebook-navigator/main.js"),
+    ], check=True)
+    subprocess.run([
+        "python3", str(ROOT / "plugins/outliner-vim-lists/build.py"),
+        "--base", str(plugin_root / "obsidian-outliner/main.js"),
+        "--output", str(plugin_root / "obsidian-outliner/main.js"),
     ], check=True)
 
     copy_tree_files(
@@ -148,4 +155,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

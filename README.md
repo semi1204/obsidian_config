@@ -10,6 +10,7 @@ Obsidian의 편집 환경과 로컬 커스텀 플러그인을 한곳에 보관�
 - `plugins/list-marker-input/`: `-`와 `1.` 목록 전환 및 `1. → a. → i.` 중첩 번호 표시
 - `plugins/navigator-vim-keys/`: 폴더에서 `j/k/h/l`, `Space`로 파일 목록 확정, `Enter`로 노트 열기
 - `plugins/vim-im-control/`: Vim의 `Esc`, `o`, `O`와 macOS 한글 입력기 전환 보정
+- `plugins/outliner-vim-lists/`: Outliner의 `o/O`가 현재 목록 기호·들여쓰기·숨은 카드 메타데이터를 유지하도록 보정
 
 ## 요구 버전
 
@@ -17,6 +18,7 @@ Obsidian의 편집 환경과 로컬 커스텀 플러그인을 한곳에 보관�
 - Spaced Repetition 1.15.4
 - Paste Mode 5.0.2
 - Notebook Navigator 3.2.2
+- Outliner 4.10.2
 - macOS에서 Anki 전송 시 Anki와 AnkiConnect
 
 세 패치 스크립트는 지정한 원본에서 예상 코드가 정확히 한 번 발견될 때만 빌드합니다. 플러그인 버전이 다르면 중단되므로 해당 버전의 공식 플러그인을 먼저 설치하세요.
@@ -84,8 +86,8 @@ OSR_BUNDLE=/tmp/obsidian-sr-build/main.js \
 - [Spaced Repetition](https://github.com/st3v3nmw/obsidian-spaced-repetition)
 - [Paste Mode](https://github.com/jglev/obsidian-paste-mode)
 - [Notebook Navigator](https://github.com/johansan/notebook-navigator)
+- [Outliner](https://github.com/vslinko/obsidian-outliner)
 - [Vim IM Control](https://github.com/hideakitai/obsidian-vim-im-control)
 - [im-select](https://github.com/daipeihust/im-select)
 
 각 업스트림에서 가져온 코드에는 해당 프로젝트의 라이선스가 적용됩니다. `vim-im-control`과 `im-select`의 라이선스 전문은 해당 폴더에 보존했습니다.
-
