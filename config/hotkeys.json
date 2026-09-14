@@ -1,0 +1,321 @@
+{
+  "editor:delete-paragraph": [],
+  "backlink:open": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "B"
+    }
+  ],
+  "command-palette:open": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "P"
+    }
+  ],
+  "obsidian-excalidraw-plugin:excalidraw-autocreate-popout": [
+    {
+      "modifiers": [
+        "Alt",
+        "Mod"
+      ],
+      "key": "E"
+    }
+  ],
+  "obsidian-excalidraw-plugin:insert-link": [],
+  "workspace:previous-tab": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "["
+    }
+  ],
+  "workspace:next-tab": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "]"
+    }
+  ],
+  "obsidian-hover-editor:open-current-file-in-new-popover": [
+    {
+      "modifiers": [
+        "Alt",
+        "Mod"
+      ],
+      "key": "H"
+    }
+  ],
+  "editor:insert-footnote": [
+    {
+      "modifiers": [
+        "Alt",
+        "Mod"
+      ],
+      "key": "ArrowDown"
+    }
+  ],
+  "editor:insert-link": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "L"
+    }
+  ],
+  "editor:insert-table": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "T"
+    }
+  ],
+  "make-md:mk-blink": [],
+  "file-explorer:move-file": [
+    {
+      "modifiers": [
+        "Alt",
+        "Mod"
+      ],
+      "key": "T"
+    }
+  ],
+  "app:go-back": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "["
+    }
+  ],
+  "app:go-forward": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "]"
+    }
+  ],
+  "editor:open-link-in-new-split": [],
+  "outline:open-for-current": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "O"
+    }
+  ],
+  "switcher:open": [],
+  "obsidian-reminder-plugin:toggle-checklist-status": [],
+  "insert-template": [
+    {
+      "modifiers": [
+        "Alt",
+        "Shift"
+      ],
+      "key": "T"
+    }
+  ],
+  "editor:toggle-checklist-status": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "Enter"
+    }
+  ],
+  "markdown:toggle-preview": [],
+  "editor:open-link-in-new-leaf": [],
+  "editing-toolbar:editor:toggle-checklist-status": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "Enter"
+    }
+  ],
+  "app:toggle-right-sidebar": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "E"
+    }
+  ],
+  "open-with-default-app:show": [
+    {
+      "modifiers": [
+        "Alt",
+        "Ctrl",
+        "Mod"
+      ],
+      "key": "F"
+    }
+  ],
+  "app:toggle-left-sidebar": [],
+  "obsidian-memos:insert-task": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "Enter"
+    }
+  ],
+  "obsidian-memos:open-thino-in-float": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "I"
+    }
+  ],
+  "dynamic-outline:toggle-dynamic-outline": [
+    {
+      "modifiers": [
+        "Ctrl"
+      ],
+      "key": "O"
+    }
+  ],
+  "obsidian-spaced-repetition:srs-review-flashcards": [],
+  "obsidian-spaced-repetition:srs-review-flashcards-in-note": [
+    {
+      "modifiers": [
+        "Ctrl",
+        "Shift"
+      ],
+      "key": "R"
+    }
+  ],
+  "obsidian-day-planner:show-day-planner-timeline": [
+    {
+      "modifiers": [
+        "Alt",
+        "Ctrl"
+      ],
+      "key": "T"
+    }
+  ],
+  "editing-toolbar:toggle-highlight": [
+    {
+      "modifiers": [
+        "Ctrl",
+        "Mod"
+      ],
+      "key": "1"
+    }
+  ],
+  "hi-note:open-comment-window": [
+    {
+      "modifiers": [
+        "Alt",
+        "Ctrl"
+      ],
+      "key": "H"
+    }
+  ],
+  "window:toggle-always-on-top": [
+    {
+      "modifiers": [
+        "Ctrl",
+        "Mod"
+      ],
+      "key": "P"
+    }
+  ],
+  "outgoing-links:open": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "O"
+    }
+  ],
+  "notebook-navigator:search": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "K"
+    }
+  ],
+  "global-search:open": [],
+  "editor:open-search": [],
+  "omnisearch:show-modal-infile": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "F"
+    }
+  ],
+  "omnisearch:show-modal": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "K"
+    }
+  ],
+  "obsidian-advanced-uri:copy-uri-block-with-format": [
+    {
+      "modifiers": [
+        "Ctrl"
+      ],
+      "key": "C"
+    }
+  ],
+  "obsidian-advanced-uri:copy-uri-current-file-simple-with-format": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "C"
+    }
+  ],
+  "notebook-navigator:toggle-left-sidebar": [],
+  "notebook-navigator:open": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "E"
+    }
+  ],
+  "editing-toolbar:underline": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "U"
+    }
+  ],
+  "obsidian-spaced-repetition:anki-sync-all": [
+    {
+      "modifiers": [
+        "Ctrl",
+        "Shift"
+      ],
+      "key": "A"
+    }
+  ],
+  "app:delete-file": [
+    {
+      "modifiers": [
+        "Ctrl"
+      ],
+      "key": "Delete"
+    }
+  ]
+}

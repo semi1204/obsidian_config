@@ -1,0 +1,10 @@
+.DS_Store
+__pycache__/
+*.pyc
+*.log
+**/anki-last-sync.json
+**/build-info.json
+**/navigator-build.json
+**/im-select
+backups/
+dist/

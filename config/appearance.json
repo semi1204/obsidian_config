@@ -1,0 +1,8 @@
+{
+  "theme": "moonstone",
+  "cssTheme": "Things",
+  "enabledCssSnippets": [
+    "readable-tables",
+    "readable-lists"
+  ]
+}

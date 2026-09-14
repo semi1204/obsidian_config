@@ -1,0 +1,41 @@
+/* Keep Markdown numbering intact; change only list presentation. */
+.markdown-rendered ol { list-style-type: decimal; }
+.markdown-rendered ol ol { list-style-type: lower-alpha; }
+.markdown-rendered ol ol ol { list-style-type: lower-roman; }
+
+/* Separate groups without spreading out the items inside each group. */
+.markdown-rendered li > :is(ol, ul) { margin-top: 6px; }
+.markdown-rendered :is(ol, ul):not(li :is(ol, ul)) > li + li { margin-top: 12px; }
+
+/* In the flat editor DOM, the preceding line already contributes the normal
+   bottom padding. Add only the remainder of the desired 6px / 12px gap. */
+.markdown-source-view.mod-cm6 .HyperMD-list-line + .HyperMD-list-line-1:not(.HyperMD-list-line-nobullet) {
+  padding-top: calc(12px - var(--list-spacing));
+}
+.markdown-source-view.mod-cm6 :is(
+  .HyperMD-list-line-1 + .HyperMD-list-line-2,
+  .HyperMD-list-line-2 + .HyperMD-list-line-3,
+  .HyperMD-list-line-3 + .HyperMD-list-line-4,
+  .HyperMD-list-line-4 + .HyperMD-list-line-5,
+  .HyperMD-list-line-5 + .HyperMD-list-line-6
+):not(.HyperMD-list-line-nobullet) {
+  padding-top: calc(6px - var(--list-spacing));
+}
+
+/* Native marker positions stay intact for the caret and Vim. Each visible
+   marker carries its own ordinal, so scrolling cannot restart the sequence. */
+.markdown-source-view.is-live-preview .list-number[data-readable-list-depth] {
+  counter-set: readable-list-marker var(--readable-list-number);
+  color: transparent;
+  position: relative;
+}
+.markdown-source-view.is-live-preview .list-number[data-readable-list-depth]::after {
+  content: counter(readable-list-marker, lower-alpha) ". ";
+  position: absolute;
+  inset-inline-end: 0;
+  color: var(--list-marker-color);
+  white-space: pre;
+}
+.markdown-source-view.is-live-preview .list-number[data-readable-list-depth="3"]::after {
+  content: counter(readable-list-marker, lower-roman) ". ";
+}

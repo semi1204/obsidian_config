@@ -1,0 +1,27 @@
+/* Full-width tables with content-sized columns and font-relative spacing. */
+.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper {
+  width: 100%;
+}
+
+.markdown-preview-view table,
+.markdown-source-view.mod-cm6 .cm-table-widget table {
+  width: 100%;
+  table-layout: auto;
+  font-size: inherit;
+  line-height: 1.5;
+}
+
+.markdown-preview-view :is(th, td),
+.markdown-source-view.mod-cm6 .cm-table-widget :is(th, td) {
+  font-size: inherit;
+  overflow-wrap: anywhere;
+}
+
+.markdown-preview-view :is(th, td),
+.markdown-source-view.mod-cm6 .cm-table-widget .table-cell-wrapper {
+  padding: 0.5em 0.75em;
+}
+
+.markdown-preview-view .el-table {
+  overflow-x: auto;
+}

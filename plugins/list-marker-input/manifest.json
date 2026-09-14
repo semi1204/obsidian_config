@@ -1,0 +1,9 @@
+{
+  "id": "list-marker-input",
+  "name": "List Marker Input",
+  "version": "1.1.0",
+  "minAppVersion": "1.11.7",
+  "description": "Switch list markers by typing 1. or - and display nested numbered lists as 1., a., i. in Live Preview.",
+  "author": "Local",
+  "isDesktopOnly": false
+}

@@ -1,0 +1,20 @@
+{
+  "blue-topaz-theme@@clutter-free-headings": false,
+  "blue-topaz-theme@@funny-header-anim": false,
+  "blue-topaz-theme@@toggle-calendar-shadow": true,
+  "things-style@@fancy-code": false,
+  "things-style@@fancy-highlight": true,
+  "things-style@@h1-color": "#2C3E50",
+  "things-style@@h2-color": "#2980B9",
+  "things-style@@h3-color": "#2DA861",
+  "things-style@@h4-color": "#7C4D9D",
+  "things-style@@h5-color": "#167D8D",
+  "things-style@@h6-color": "#7F8C8D",
+  "things-style@@progress-color-1": "#E74C3C",
+  "things-style@@progress-color-2": "#F39C12",
+  "things-style@@progress-color-3": "#F1C40F",
+  "things-style@@progress-color-4": "#B0C07E",
+  "things-style@@progress-color-5": "#2ECC71",
+  "things-style@@strong-color": "#D35400",
+  "things-style@@mobile-black-background": true
+}
